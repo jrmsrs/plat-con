@@ -1,0 +1,33 @@
+{
+  "Template to vitest sveltekit components functions": {
+    "scope": "typescript",
+    "prefix": ["vitest", "unit"],
+    "body": [
+      "import { describe, it, expect } from 'vitest'",
+      "import Page from './+page.svelte'",
+      "const page = new Page({ target: document.createElement('div') })",
+      "\ndescribe('${1:describe}', () => {",
+      "\tit('${2:it}', () => {",
+      "\t\texpect(page.func(0)).toBe(0)",
+      "\t})",
+      "})\n"
+    ],
+    "description": "Template to start Vitest *.{spec,test}.ts files",
+    "isFileTemplate": true
+  },
+  "Template for delay functions": {
+    "scope": "typescript",
+    "prefix": ["delay"],
+    "body": [
+      "const delay = (time: number) => new Promise(resolve => setTimeout(resolve, time))",
+      "$1"
+    ],
+    "description": "Create default function to delay awaits"
+  },
+  "Template for gotoNewTab functions for this sveltekit project": {
+    "scope": "typescript",
+    "prefix": ["gotoNewTab"],
+    "body": ["const gotoNewTab = (url: string) => window.open(url, '_blank')", "$1"],
+    "description": "Create default function to gotoNewTab functions, like goto(), but ...opens new tab..."
+  }
+}

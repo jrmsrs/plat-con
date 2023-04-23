@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --color-dark: #1E1B4B;
+    --color-light: #F3F4F6;
+  }
+  html {
+    font-family: sans-serif;
+    /* text-transform: lowercase; */
+    background: var(--color-light);
+  }
+}
