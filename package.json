@@ -1,11 +1,11 @@
 {
-  "name": "svelte-layout",
-  "version": "0.0.1",
+  "name": "plat-conteudos",
+  "version": "0.0.01",
   "scripts": {
-    "update-types": "npx supabase gen types typescript --project-id \"ID\" --schema public > src/lib/db/types.d.ts",
+    "update-types": "npx supabase gen types typescript --project-id \"vicygviwwshrkodxnycl\" --schema public > src/lib/db/types.d.ts",
     "start": "vite dev --host",
     "dev": "vite dev",
-    "build": "npm run update-types && vite build",
+    "build": "vite build",
     "preview": "vite preview --host",
     "test": "playwright test",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",

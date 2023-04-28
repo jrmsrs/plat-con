@@ -1,21 +1,72 @@
 import { test, expect } from '@playwright/test'
-
+test('navbar', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('link', { name: 'Channels' }).click()
+  await page.getByRole('link', { name: 'Members' }).click()
+  await page.getByRole('link', { name: 'About' }).click()
+  await page.getByRole('link', { name: 'Home' }).click()
+})
 test('index page', async ({ page }) => {
   await page.goto('/')
-  // await page.getByText('loading...').first().isVisible()
   await page.getByText('Hello world').isVisible()
   await page.getByText('This is Home page.').isVisible()
 })
 
 test('about page', async ({ page }) => {
   await page.goto('/')
-  // await page.getByText('loading...').first().isVisible()
   await page.getByText('About').isVisible()
   await page.getByText('This is About page.').isVisible()
 })
 
-test('supabase test page', async ({ page }) => {
-  await page.goto('/supatest')
-  // await page.getByText('loading...').first().isVisible()
-  await page.getByText('Supabase Connection Test').isVisible()
+test('channels page', async ({ page }) => {
+  await page.goto('/channels')
+  await page.locator('h1').getByText('Channels').isVisible()
+  expect(await page.locator('div.card').count()).toBeGreaterThanOrEqual(2)
+  await page.getByText('IsoCast').isVisible()
+  await page.getByText('NóNaOrelha').isVisible()
+  await page.getByText('Hosted by John No Arms and Ianson Robinso').isVisible()
+  await page.getByText('Um podcast que.').isVisible()
+  await page.locator('.tag').getByText('text').isVisible()
+  await page.locator('.tag').getByText('podcast').isVisible()
+  await page.locator('.card div img').first().isVisible()
+})
+test('members page', async ({ page }) => {
+  await page.goto('/members')
+  await page.locator('h1').getByText('Members').isVisible()
+  expect(await page.locator('div.card').count()).toBeGreaterThanOrEqual(2)
+  await page.locator('.card').getByText('Ianson Robinso').isVisible()
+  await page.locator('.card').getByText('John No Arms').isVisible()
+  await page.locator('.card div img').first().isVisible()
+})
+test('slug pages && navigation', async ({ page }) => {
+  await page.goto('/tags/text')
+  await page.getByText('Channels with text tag').isVisible()
+  expect(await page.locator('div.card').count()).toBeGreaterThanOrEqual(1)
+  await page.locator('.card').getByText('NóNaOrelha').isVisible()
+  await page.locator('.card div img').isVisible()
+
+  await page.locator('.tag').getByText('video').first().click()
+  await page.locator('h1').getByText('Channels with video tag').isVisible()
+  await page.locator('.card').getByText('IsoCast').isVisible()
+
+  await page.click("[id='872108ec-5de2-4914-9f44-bb22edc682bf']")
+  await page.locator('h1').getByText('NóNaOrelha').isVisible()
+  await page.getByText('Coluna de analise musical').isVisible()
+  await page.getByText('Hosted by John No Arms and Ianson Robinso').isVisible()
+  await page.locator('.tag').getByText('video').first().isVisible()
+  await page.locator('.tag').getByText('text').first().isVisible()
+  await page.locator('.content').getByText('#001').isVisible()
+  await page.locator('.content').getByText('Fantasmadolescente').isVisible()
+
+  await page.locator('.host').first().click()
+  await page.locator('.tag').getByText('video').first().click()
+  await page.click("[id='fedbc75e-aff2-4ff8-9057-5a2a229ca4d9']")
+
+  await page.locator('h1').getByText('IsoCast').isVisible()
+  await page.locator('.content').getByText('#000').isVisible()
+  await page.locator('.content').getByText('Tentamos render bloco').isVisible()
+  await page.locator('.content').getByText('#001').click()
+  await page.locator('h1').getByText('#001 O inicio de um sonho').isVisible()
+  await page.locator('.body').getByText('texto de apoio').isVisible()
+  await page.locator('.body').getByText('linkprovideodopodcast001/').isVisible()
 })

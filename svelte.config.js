@@ -10,6 +10,7 @@ const config = {
     alias: {
       $components: path.resolve('./src/lib/components'),
       $images: path.resolve('./src/lib/images'),
+      $stores: path.resolve('./src/lib/stores'),
       $root: path.resolve('./src')
     }
   },

@@ -24,3 +24,7 @@ h2 {
   font-weight: 400;
   font-size: 1.3rem;
 }
+:root {
+ --link-color: rgba(255, 62, 62, 0.5);
+	--blur: 1.5px; 
+  }

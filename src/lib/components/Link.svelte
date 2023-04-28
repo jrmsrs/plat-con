@@ -35,9 +35,16 @@
 </a>
 
 <style lang="postcss">
+  .shadow {
+    border-width: 4px;
+    border-color: transparent;
+    border-radius: 0.375rem;
+  }
   .shadow:hover {
-    filter: drop-shadow(0 0 var(--blur) var(--link-color))
-      drop-shadow(0 0 var(--blur) var(--link-color)) drop-shadow(0 0 var(--blur) var(--link-color))
-      drop-shadow(0 0 var(--blur) var(--link-color));
+    border-color: var(--link-color);
+  }
+  .hover:hover {
+    border-width: 4px;
+    border-color: var(--link-color);
   }
 </style>

@@ -32,6 +32,30 @@
       </li>
       <li>
         <Link
+          href="/channels"
+          nodefault
+          class="dark:text-gray-100 text-gray-900 dark:hover:text-red-300 hover:text-red-300 border-t-4 ml-3 {$page
+            .url.pathname === '/channels'
+            ? 'border-red-300'
+            : 'border-transparent'}"
+        >
+          Channels
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/members"
+          nodefault
+          class="dark:text-gray-100 text-gray-900 dark:hover:text-red-300 hover:text-red-300 border-t-4 ml-3 {$page
+            .url.pathname === '/members'
+            ? 'border-red-300'
+            : 'border-transparent'}"
+        >
+          Members
+        </Link>
+      </li>
+      <li>
+        <Link
           href="/about"
           nodefault
           class="dark:text-gray-100 text-gray-900 dark:hover:text-red-300 hover:text-red-300 border-t-4 ml-3 {$page
@@ -40,18 +64,6 @@
             : 'border-transparent'}"
         >
           About
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/supatest"
-          nodefault
-          class="dark:text-gray-100 text-gray-900 dark:hover:text-red-300 hover:text-red-300 border-t-4 ml-3 {$page
-            .url.pathname === '/supatest'
-            ? 'border-red-300'
-            : 'border-transparent'}"
-        >
-          Test
         </Link>
       </li>
     </ul>

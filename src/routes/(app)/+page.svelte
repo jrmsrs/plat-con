@@ -1,10 +1,9 @@
 <script lang="ts">
   import '$root/app.css'
   import './styles.css'
-  import { afterUpdate } from 'svelte'
   import { PUBLIC_APP_NAME } from '$env/static/public'
-  import { loading$ } from '$lib/stores/contentStore'
-
+  import { loading$ } from '$stores/contentStore'
+  import { afterUpdate } from 'svelte'
   afterUpdate(() => loading$.set(false))
 </script>
 
