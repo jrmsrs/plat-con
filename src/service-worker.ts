@@ -8,7 +8,9 @@ const ASSETS = [
   // ...imgCacheUrls,
   ...build, // the app itself
   ...files, // everything in `static`
-  '/about/'
+  '/about/',
+  '/channels/',
+  '/members/'
 ]
 
 self.addEventListener('install', event => {

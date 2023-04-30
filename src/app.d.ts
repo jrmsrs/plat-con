@@ -6,6 +6,11 @@ declare global {
     // interface Locals {}
     // interface PageData {}
     // interface Platform {}
+    interface Event {
+      request: Request
+      waitUntil(fn: Promise<void>): void
+      respondWith(response: Promise<Response | undefined>): Promise<Response>
+    }
   }
 }
 export {}

@@ -2,7 +2,7 @@
   import { onMount } from 'svelte'
   import { observe } from './intersection.service'
   import missing from '$images/missing.webp'
-  import lazy from '$images/colors.gif'
+  import lazy from '$images/lazy.gif'
 
   let image, source
 

@@ -10,5 +10,5 @@ export const _fetchChannels = async () => {
 }
 
 export const load = async () => {
-  return { channels: await _fetchChannels() }
+  return { streamed: { channels: _fetchChannels() } }
 }

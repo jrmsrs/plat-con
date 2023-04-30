@@ -4,6 +4,7 @@
   import TagButton from '$components/Card/TagButton.svelte'
   import CardContainer from '$components/Card/CardContainer.svelte'
   import Card from '$components/Card/Card.svelte'
+  import Image from '$components/Image.svelte'
   import { loading$ } from '$stores/contentStore'
   import { afterUpdate } from 'svelte'
   export let data
@@ -29,7 +30,7 @@
     {#each member.channels as { name, description, tags, id }}
       <Card href="/channels/{id}" {id}>
         <div>
-          <img
+          <Image
             src="https://ui-avatars.com/api/?size=512&background=random&name={name}&uppercase=false"
             alt="logo of {name}"
           />
