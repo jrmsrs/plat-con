@@ -28,6 +28,7 @@
     {#each members as { stage_name, id }}
       <Card href="/members/{id}" {id}>
         <Image
+          class="w-full rounded-md overflow-hidden"
           src="https://ui-avatars.com/api/?background=random&name={stage_name}&uppercase=false"
           alt="avatar of {stage_name}"
         />
