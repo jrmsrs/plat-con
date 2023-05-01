@@ -1,6 +1,6 @@
 {
   "name": "plat-conteudos",
-  "version": "0.0.01",
+  "version": "0.0.1",
   "scripts": {
     "update-types": "npx supabase gen types typescript --project-id \"vicygviwwshrkodxnycl\" --schema public > src/lib/db/types.d.ts",
     "start": "vite dev --host",

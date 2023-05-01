@@ -19,9 +19,10 @@
 <h1 class="font-extralight">Channels with <strong class="font-extrabold">{tag}</strong> tag</h1>
 <CardContainer>
   {#each channels as { name, description, tags, id, members }}
-    <Card href="/channels/{id}" {id}>
+    <Card href="/channels/{id}?name={encodeURIComponent(name)}" {id}>
       <div>
         <Image
+          class="w-full rounded-md overflow-hidden"
           src="https://ui-avatars.com/api/?size=512&background=random&name={name}&uppercase=false"
           alt="logo of {name}"
         />

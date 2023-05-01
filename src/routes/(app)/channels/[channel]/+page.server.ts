@@ -15,7 +15,9 @@ export const _fetchChannel = async (channel_id: string) => {
 export const load = async ({ params }) => {
   const id = params.channel
   return {
-    channel: await _fetchChannel(id),
-    channel_id: id
+    channel_id: id,
+    streamed: {
+      channel: _fetchChannel(id)
+    }
   }
 }

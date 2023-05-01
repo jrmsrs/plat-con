@@ -26,7 +26,7 @@
     {/each}
   {:then members}
     {#each members as { stage_name, id }}
-      <Card href="/members/{id}" {id}>
+      <Card href="/members/{id}?name={encodeURIComponent(stage_name)}" {id}>
         <Image
           class="w-full rounded-md overflow-hidden"
           src="https://ui-avatars.com/api/?background=random&name={stage_name}&uppercase=false"

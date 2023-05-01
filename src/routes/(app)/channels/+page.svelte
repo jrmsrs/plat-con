@@ -43,7 +43,7 @@
     {/each}
   {:then channels}
     {#each channels as { name, description, tags, id, members }}
-      <Card href="/channels/{id}" {id}>
+      <Card href="/channels/{id}?name={encodeURIComponent(name)}" {id}>
         <div>
           <Image
             class="w-full rounded-md overflow-hidden"

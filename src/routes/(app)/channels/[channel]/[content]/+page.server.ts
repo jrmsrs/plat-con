@@ -1,5 +1,6 @@
 import { db } from '$lib/db/client'
 import { error } from '@sveltejs/kit'
+import { PUBLIC_APP_NAME } from '$env/static/public'
 
 export const _fetchContent = async (content_id: string) => {
   const { data: content, error: db_error2 } = await db
@@ -11,8 +12,8 @@ export const _fetchContent = async (content_id: string) => {
   return content[0]
 }
 
-export const load = async ({ params }) => {
+export const load = async ({ params, url }) => {
   const id = params.content
 
-  return { content: await _fetchContent(id) }
+  return { streamed: { content: _fetchContent(id) } }
 }
