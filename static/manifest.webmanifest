@@ -34,7 +34,7 @@
       "type": "image/png"
     },
     {
-      "src": "favicon/128x128.png",
+      "src": "favicon/maskable.png",
       "sizes": "128x128",
       "purpose": "maskable"
     }
