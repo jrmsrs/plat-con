@@ -7,7 +7,7 @@
   import { PUBLIC_APP_NAME } from '$env/static/public'
   const title = decodeURI($page.url.searchParams.get('name') || PUBLIC_APP_NAME)
   export let data
-  $: ({ channel } = data.streamed)
+  $: ({ channel } = data)
   afterUpdate(() => loading$.set(false))
 </script>
 
@@ -17,49 +17,44 @@
   <meta name="theme-color" content="#FCA5A5" />
 </svelte:head>
 
-{#await channel then channel}
-  <h1>{channel.name}</h1>
-  <div class="channel mb-2">
-    <p>{channel.description}</p>
-
-    <p>
-      Hosted by
-      {#if Array.isArray(channel.members)}
-        {#each channel.members as { stage_name, id }, i}
-          {#if i < channel.members.length - 2}
-            <Link cls="host" href="/members/{id}?name={encodeURIComponent(stage_name)}"
-              >{stage_name}</Link
-            >,&nbsp;
-          {:else if i == channel.members.length - 2}
-            <Link cls="host" href="/members/{id}?name={encodeURIComponent(stage_name)}"
-              >{stage_name}</Link
-            > and&nbsp;
-          {:else}<Link cls="host" href="/members/{id}?name={encodeURIComponent(stage_name)}"
-              >{stage_name}</Link
-            >
-          {/if}
-        {/each}
-      {/if}
-    </p>
-
-    <p>
-      tags:
-      {#if channel.tags}
-        {#each channel.tags as tag}
-          <TagButton {tag} />
-        {/each}
-      {/if}
-    </p>
-  </div>
-
-  {#if Array.isArray(channel.contents)}
-    {#each channel.contents as { title, description, id, channel_id }}
-      <div class="content mb-3">
-        <h3>
-          <Link href="/channels/{channel_id}/{id}?name={encodeURIComponent(title)}">{title}</Link>
-        </h3>
-        <p>{description}</p>
-      </div>
-    {/each}
-  {/if}
-{/await}
+<h1>{channel.name}</h1>
+<div class="channel mb-2">
+  <p>{channel.description}</p>
+  <p>
+    Hosted by
+    {#if Array.isArray(channel.members)}
+      {#each channel.members as { stage_name, id }, i}
+        {#if i < channel.members.length - 2}
+          <Link cls="host" href="/members/{id}?name={encodeURIComponent(stage_name)}"
+            >{stage_name}</Link
+          >,&nbsp;
+        {:else if i == channel.members.length - 2}
+          <Link cls="host" href="/members/{id}?name={encodeURIComponent(stage_name)}"
+            >{stage_name}</Link
+          > and&nbsp;
+        {:else}<Link cls="host" href="/members/{id}?name={encodeURIComponent(stage_name)}"
+            >{stage_name}</Link
+          >
+        {/if}
+      {/each}
+    {/if}
+  </p>
+  <p>
+    tags:
+    {#if channel.tags}
+      {#each channel.tags as tag}
+        <TagButton {tag} />
+      {/each}
+    {/if}
+  </p>
+</div>
+{#if Array.isArray(channel.contents)}
+  {#each channel.contents as { title, description, id, channel_id }}
+    <div class="content mb-3">
+      <h3>
+        <Link href="/channels/{channel_id}/{id}?name={encodeURIComponent(title)}">{title}</Link>
+      </h3>
+      <p>{description}</p>
+    </div>
+  {/each}
+{/if}

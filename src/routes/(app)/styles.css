@@ -1,10 +1,8 @@
 @import '@fontsource/inter';
-
 :root {
   --font-body: Inter, sans-serif;
   font-family: var(--font-body);
 }
-
 html {
   user-select: none;
 }
@@ -28,3 +26,14 @@ h2 {
  --link-color: rgba(255, 62, 62, 0.5);
 	--blur: 1.5px; 
   }
+input[type='text'],
+textarea {
+  background-color: rgb(39 39 42);
+  padding:4px;
+  padding-left: 8px;
+}
+fieldset {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.75rem;
+}

@@ -9,6 +9,6 @@
   html {
     font-family: sans-serif;
     /* text-transform: lowercase; */
-    background: var(--color-light);
+    background: var(--color-dark);
   }
 }

@@ -3,6 +3,7 @@
   import CardContainer from '$components/Card/CardContainer.svelte'
   import Card from '$components/Card/Card.svelte'
   import Image from '$components/Image.svelte'
+  import Link from '$components/Link.svelte'
   import TagButton from '$components/Card/TagButton.svelte'
   import { loading$ } from '$stores/contentStore'
   import { afterUpdate } from 'svelte'
@@ -77,3 +78,6 @@
     {/each}
   {/await}
 </CardContainer>
+
+<h2>Admin Options</h2>
+<Link href="/channels/new">Add channel</Link>

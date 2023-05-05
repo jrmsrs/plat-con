@@ -35,5 +35,7 @@
         <h2>{stage_name}</h2>
       </Card>
     {/each}
+  {:catch}
+    <p>Error. Perhaps you don't have access to this page or our server is under maintance.</p>
   {/await}
 </CardContainer>

@@ -8,4 +8,4 @@
 </svelte:head>
 
 <h1>Error</h1>
-<p>{$page.error.message}</p>
+<p>Page Not Found</p>
