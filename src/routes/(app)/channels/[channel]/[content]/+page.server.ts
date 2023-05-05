@@ -15,5 +15,5 @@ export const _fetchContent = async (content_id: string) => {
 export const load = async ({ params }) => {
   const id = params.content
 
-  return { streamed: { content: _fetchContent(id) } }
+  return { content: _fetchContent(id) }
 }
