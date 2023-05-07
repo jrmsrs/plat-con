@@ -2,7 +2,7 @@
   "name": "plat-conteudos",
   "version": "0.0.1",
   "scripts": {
-    "update-types": "npx supabase gen types typescript --project-id \"vicygviwwshrkodxnycl\" --schema public > src/lib/db/types.d.ts",
+    "update-types": "npx supabase gen types typescript --project-id \"vicygviwwshrkodxnycl\" --schema public > src/lib/SupabaseTypes.d.ts",
     "start": "vite dev --host",
     "dev": "vite dev",
     "build": "vite build",
@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@fontsource/inter": "^4.5.15",
+    "@iconify/svelte": "^3.1.3",
     "@neoconfetti/svelte": "^1.0.0",
     "@playwright/test": "^1.31.2",
     "@sveltejs/adapter-auto": "^2.0.0",
@@ -47,6 +48,8 @@
   "type": "module",
   "dependencies": {
     "@supabase/auth-helpers-sveltekit": "^0.9.4",
+    "@supabase/auth-ui-shared": "^0.1.4",
+    "@supabase/auth-ui-svelte": "^0.1.6",
     "@supabase/supabase-js": "^2.21.0",
     "@sveltejs/adapter-vercel": "^1.0.6",
     "axios": "^1.3.2"

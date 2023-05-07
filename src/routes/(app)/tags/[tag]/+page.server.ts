@@ -1,8 +1,8 @@
-import { db } from '$lib/db/client'
+import type { SupabaseClient } from '@supabase/supabase-js'
 import { error } from '@sveltejs/kit'
 
-export const _fetchChannelsByTag = async (channel_id: string) => {
-  const { data: channels, error: db_error } = await db
+export const _fetchChannelsByTag = async (supabase: SupabaseClient, channel_id: string) => {
+  const { data: channels, error: db_error } = await supabase
     .from('channels')
     .select('*,members(stage_name)')
     .contains('tags', [channel_id])
@@ -11,7 +11,7 @@ export const _fetchChannelsByTag = async (channel_id: string) => {
   return channels
 }
 
-export const load = async ({ params }) => {
+export const load = async ({ params, locals: { supabase } }) => {
   const tag = params.tag
-  return { channels: await _fetchChannelsByTag(tag), tag }
+  return { channels: await _fetchChannelsByTag(supabase, tag), tag }
 }

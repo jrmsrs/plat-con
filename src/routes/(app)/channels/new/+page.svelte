@@ -17,7 +17,7 @@
 <form method="post">
   <fieldset>
     <label for="name">Name</label>
-    <input type="text" name="name" id="description" required />
+    <input type="text" name="name" id="name" required />
   </fieldset>
   <fieldset>
     <label for="description">Description</label>

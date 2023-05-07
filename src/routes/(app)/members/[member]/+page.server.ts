@@ -1,8 +1,8 @@
-import { db } from '$lib/db/client'
+import type { SupabaseClient } from '@supabase/supabase-js'
 import { error } from '@sveltejs/kit'
 
-export const _fetchMember = async (member_id: string) => {
-  const { data: member, error: db_error } = await db
+export const _fetchMember = async (supabase: SupabaseClient, member_id: string) => {
+  const { data: member, error: db_error } = await supabase
     .from('members')
     .select('*, channels(*)')
     .eq('id', member_id)
@@ -11,10 +11,10 @@ export const _fetchMember = async (member_id: string) => {
   return member[0]
 }
 
-export const load = async ({ params }) => {
+export const load = async ({ params, locals: { supabase } }) => {
   const id = params.member
   return {
-    member: await _fetchMember(id),
+    member: await _fetchMember(supabase, id),
     member_id: id
   }
 }

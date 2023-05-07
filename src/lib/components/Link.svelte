@@ -23,7 +23,7 @@
   {href}
   class={cls +
     ' ' +
-    (nodefault ? '' : 'text-red-500 hover:text-red-300') +
+    (nodefault ? '' : 'text-green-500 hover:text-green-300') +
     (shadow ? 'shadow' : '')}
   on:auxclick={() => gotoNewTab(href)}
   target={blank ? '_blank' : null}

@@ -1,10 +1,9 @@
-import { db } from '$lib/db/client'
 import { error } from '@sveltejs/kit'
 
 export const actions = {
-  default: async ({ request }) => {
+  default: async ({ request, locals: { supabase } }) => {
     const formData = await request.formData()
-    const { error: db_error } = await db.from('channels').insert({
+    const { error: db_error } = await supabase.from('channels').insert({
       name: formData.get('name') as string,
       description: formData.get('description') as string,
       logo_img_uri: formData.get('logo') as string,

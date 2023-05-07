@@ -1,8 +1,8 @@
-import { db } from '$lib/db/client'
+import type { SupabaseClient } from '@supabase/supabase-js'
 import { error } from '@sveltejs/kit'
 
-export const _fetchContent = async (content_id: string) => {
-  const { data: content, error: db_error } = await db
+export const _fetchContent = async (supabase: SupabaseClient, content_id: string) => {
+  const { data: content, error: db_error } = await supabase
     .from('contents')
     .select('*, content_body(*)')
     .eq('id', content_id)
@@ -12,8 +12,8 @@ export const _fetchContent = async (content_id: string) => {
   return content[0]
 }
 
-export const load = async ({ params }) => {
+export const load = async ({ params, locals: { supabase } }) => {
   const id = params.content
 
-  return { content: _fetchContent(id) }
+  return { content: _fetchContent(supabase, id) }
 }
