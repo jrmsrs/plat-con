@@ -20,7 +20,7 @@
 
 <style lang="postcss">
   :root {
-    --link-color: rgba(255, 62, 62, 0.5);
+    --link-color: rgba(34, 197, 94, 1);
     --blur: 1.5px;
   }
 </style>
