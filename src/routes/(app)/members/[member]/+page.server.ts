@@ -1,7 +1,8 @@
+import type { Database } from '$root/SupabaseTypes.js'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { error } from '@sveltejs/kit'
 
-export const _fetchMember = async (supabase: SupabaseClient, member_id: string) => {
+export const _fetchMember = async (supabase: SupabaseClient<Database>, member_id: string) => {
   const { data: member, error: db_error } = await supabase
     .from('members')
     .select('*, channels(*)')

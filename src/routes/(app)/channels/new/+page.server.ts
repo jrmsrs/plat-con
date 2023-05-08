@@ -1,4 +1,4 @@
-import { error } from '@sveltejs/kit'
+import { error, redirect } from '@sveltejs/kit'
 
 export const actions = {
   default: async ({ request, locals: { supabase } }) => {
@@ -13,6 +13,8 @@ export const actions = {
   }
 }
 
-export const load = async () => {
+export const load = async ({ locals: { getSession } }) => {
+  if (!(await getSession())) throw redirect(300, '/')
+
   return {}
 }

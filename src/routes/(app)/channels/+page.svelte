@@ -9,6 +9,7 @@
   import { afterUpdate } from 'svelte'
   export let data
   $: ({ channels } = data.streamed)
+  $: ({ session } = data)
   afterUpdate(() => loading$.set(false))
 </script>
 
@@ -43,12 +44,12 @@
       </Card>
     {/each}
   {:then channels}
-    {#each channels as { name, description, tags, id, members }}
+    {#each channels as { name, description, tags, id, members, logo_img_uri }}
       <Card href="/channels/{id}?name={encodeURIComponent(name)}" {id}>
         <div>
           <Image
             class="w-full rounded-md overflow-hidden"
-            src="https://ui-avatars.com/api/?size=512&background=random&name={name}&uppercase=false"
+            src="https://drive.google.com/uc?export=view&id={logo_img_uri}"
             alt="logo of {name}"
           />
           <h2>{name}</h2>
@@ -65,7 +66,7 @@
               {/each}
             {/if}
           </p>
-          <p>{description}.</p>
+          <p>{description}</p>
         </div>
         <div class="mt-2">
           {#if tags}
@@ -79,5 +80,7 @@
   {/await}
 </CardContainer>
 
-<h2>Admin Options</h2>
-<Link href="/channels/new">Add channel</Link>
+{#if session?.user.role == 'authenticated'}
+  <h2>Admin Options</h2>
+  <Link href="/channels/new">Add channel</Link>
+{/if}

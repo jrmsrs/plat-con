@@ -40,7 +40,7 @@
     return () => subscription.unsubscribe()
   })
   onDestroy(() => {
-    loadingSubscription?.unsubscribe()
+    // loadingSubscription?.unsubscribe()
   })
 </script>
 
@@ -64,8 +64,8 @@
     on:click={toggleAuthVisible}
     on:keyup={null}
   >
-    <div class="bg-zinc-900 text-white w-96 p-16 m-auto" on:click|stopPropagation on:keyup={null}>
-      <Auth {supabase} />
+    <div class="bg-zinc-800 text-white w-96 p-16 m-auto" on:click|stopPropagation on:keyup={null}>
+      <Auth {supabase} view={session ? 'logout' : 'login'} />
     </div>
   </div>
 </div>

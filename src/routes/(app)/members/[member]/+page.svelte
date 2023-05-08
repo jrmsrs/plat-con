@@ -19,7 +19,21 @@
 </svelte:head>
 
 {#if member}
-  <h1>{member.stage_name}</h1>
+  <div class="flex">
+    <div>
+      <Image
+        class="w-24 rounded-full overflow-hidden mr-3 mb-4"
+        style="background-color: rgb({Math.random() * 200 + 55},{Math.random() * 200 +
+          55},{Math.random() * 200 + 55});"
+        src="https://drive.google.com/uc?export=view&id={member.avatar_uri}"
+        alt="avatar of {member.stage_name}"
+      />
+    </div>
+    <div>
+      <h1>{member.stage_name}</h1>
+      <p class="mb-4">{member.description}</p>
+    </div>
+  </div>
   <!-- <img
     src="https://ui-avatars.com/api/?background=random&name={member.stage_name}&rounded=true&uppercase=false"
     alt="avatar of {member.stage_name}"
@@ -28,12 +42,12 @@
 <h2>Member of</h2>
 <CardContainer>
   {#if Array.isArray(member.channels)}
-    {#each member.channels as { name, description, tags, id }}
+    {#each member.channels as { name, description, tags, id, logo_img_uri }}
       <Card href="/channels/{id}?name={encodeURIComponent(name)}" {id}>
         <div>
           <Image
             class="w-full rounded-md overflow-hidden"
-            src="https://ui-avatars.com/api/?size=512&background=random&name={name}&uppercase=false"
+            src="https://drive.google.com/uc?export=view&id={logo_img_uri}"
             alt="logo of {name}"
           />
           <h2>{name}</h2>

@@ -1,6 +1,7 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 import { SupabaseClient, Session } from '@supabase/supabase-js'
+import type { Database } from './SupabaseTypes.d'
 
 declare global {
   namespace App {
@@ -9,7 +10,7 @@ declare global {
       message: string
     }
     interface Locals {
-      supabase: SupabaseClient
+      supabase: SupabaseClient<Database, 'public'>
       getSession(): Promise<Session | null>
     }
     interface PageData {

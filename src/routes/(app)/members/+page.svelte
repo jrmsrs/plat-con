@@ -25,14 +25,17 @@
       </Card>
     {/each}
   {:then members}
-    {#each members as { stage_name, id }}
+    {#each members as { stage_name, id, avatar_uri, description }}
       <Card href="/members/{id}?name={encodeURIComponent(stage_name)}" {id}>
         <Image
           class="w-full rounded-md overflow-hidden"
-          src="https://ui-avatars.com/api/?background=random&name={stage_name}&uppercase=false"
+          style="background-color: rgb({Math.random() * 200 + 55},{Math.random() * 200 +
+            55},{Math.random() * 200 + 55});"
+          src="https://drive.google.com/uc?export=view&id={avatar_uri}"
           alt="avatar of {stage_name}"
         />
         <h2>{stage_name}</h2>
+        <p>{description}</p>
       </Card>
     {/each}
   {:catch}

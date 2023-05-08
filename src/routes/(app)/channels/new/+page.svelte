@@ -2,7 +2,6 @@
   import { PUBLIC_APP_NAME } from '$env/static/public'
   import { loading$ } from '$stores/contentStore'
   import { afterUpdate } from 'svelte'
-  export const data = {}
 
   afterUpdate(() => loading$.set(false))
 </script>

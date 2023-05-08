@@ -111,10 +111,7 @@
           </span>
           <button
             class="ml-0.5 p-0.5 border-[1px] border-red-300 hover:bg-red-300 hover:text-zinc-900 rounded-md text-sm"
-            on:click={async () => {
-              await supabase.auth.signOut()
-              await goto(`/redirect?to=${$page.url.pathname}`)
-            }}
+            on:click={toggleAuthVisible}
             on:keyup={null}
           >
             <Icon icon="mdi:logout" height="1.4em" class=" " style="display: inline" />

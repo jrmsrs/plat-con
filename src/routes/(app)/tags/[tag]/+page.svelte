@@ -18,12 +18,12 @@
 
 <h1 class="font-extralight">Channels with <strong class="font-extrabold">{tag}</strong> tag</h1>
 <CardContainer>
-  {#each channels as { name, description, tags, id, members }}
+  {#each channels as { name, description, tags, id, members, logo_img_uri }}
     <Card href="/channels/{id}?name={encodeURIComponent(name)}" {id}>
       <div>
         <Image
           class="w-full rounded-md overflow-hidden"
-          src="https://ui-avatars.com/api/?size=512&background=random&name={name}&uppercase=false"
+          src="https://drive.google.com/uc?export=view&id={logo_img_uri}"
           alt="logo of {name}"
         />
         <h2>{name}</h2>
