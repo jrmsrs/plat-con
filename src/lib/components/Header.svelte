@@ -5,10 +5,8 @@
   import Link from './Link.svelte'
   import { authVisible$ } from '$stores/contentStore'
   import { onMount } from 'svelte'
-  import type { AuthSession, SupabaseClient } from '@supabase/supabase-js'
-  import { goto } from '$app/navigation'
+  import type { AuthSession } from '@supabase/supabase-js'
   let visible = false
-  export let supabase: SupabaseClient
   export let session: AuthSession | null = null
 
   let authVisible: boolean
