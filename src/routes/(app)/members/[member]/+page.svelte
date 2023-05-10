@@ -43,7 +43,7 @@
         <div>
           <Image
             class="w-full rounded-md overflow-hidden"
-            src="{PUBLIC_SUPABASE_URI}/storage/v1/object/public/avatar/{member.id}.png"
+            src="{PUBLIC_SUPABASE_URI}/storage/v1/object/public/channel-logo/{id}.png"
             alt="logo of {name}"
           />
           <h2>{name}</h2>
