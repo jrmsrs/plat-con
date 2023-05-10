@@ -38,7 +38,9 @@
         </div>
         <div class="mt-2">
           {#each { length: 2 } as _}
-            <TagButton tag={'- --- -'} />
+            <div class="mr-1 px-1 rounded-md bg-zinc-900 border-4 border-transparent tag inline">
+              - --- -
+            </div>
           {/each}
         </div>
       </Card>
