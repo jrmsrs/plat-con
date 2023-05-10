@@ -5,7 +5,7 @@
   import { loading$ } from '$stores/contentStore'
   import { afterUpdate } from 'svelte'
   import { page } from '$app/stores'
-  import { PUBLIC_APP_NAME } from '$env/static/public'
+  import { PUBLIC_APP_NAME, PUBLIC_SUPABASE_URI } from '$env/static/public'
   const title = decodeURI($page.url.searchParams.get('name') || PUBLIC_APP_NAME)
   export let data
   $: ({ channel } = data)
@@ -23,7 +23,7 @@
     class="absolute w-full h-full"
     style="background-color: rgb({Math.random() * 200 + 55},{Math.random() * 200 +
       55},{Math.random() * 200 + 55});"
-    src="https://drive.google.com/uc?export=view&id={channel.logo_img_uri}"
+    src="{PUBLIC_SUPABASE_URI}/storage/v1/object/public/channel-logo/{channel.id}.png"
     alt="logo of {channel.name}"
   />
   <div class="absolute w-full h-full backdrop-blur-2xl" />
@@ -32,20 +32,20 @@
       class="overflow-hidden mr-3 mb-4"
       style="background-color: rgb({Math.random() * 200 + 55},{Math.random() * 200 +
         55},{Math.random() * 200 + 55});"
-      src="https://drive.google.com/uc?export=view&id={channel.logo_img_uri}"
+      src="{PUBLIC_SUPABASE_URI}/storage/v1/object/public/channel-logo/{channel.id}.png"
       alt="logo of {channel.name}"
     />
   </div>
   <div class="hidden sm:block">
     {#if Array.isArray(channel.members)}
-      {#each channel.members as { avatar_uri, stage_name }}
+      {#each channel.members as { id, stage_name }}
         <Image
           class="absolute rounded-full overflow-hidden"
           style="background-color: rgb({Math.random() * 200 + 55},{Math.random() * 200 +
             55},{Math.random() * 200 + 55}); bottom: {Math.random() *
             190}px; right: {Math.random() * 100 + 10}px; width: {Math.random() * 42 +
             24}px; z-index: {Math.floor(Math.random() * 20) + 5}"
-          src="https://drive.google.com/uc?export=view&id={avatar_uri}"
+          src="{PUBLIC_SUPABASE_URI}/storage/v1/object/public/avatar/{id}.png"
           alt="avatar of {stage_name}"
         />
       {/each}

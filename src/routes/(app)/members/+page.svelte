@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { PUBLIC_APP_NAME } from '$env/static/public'
+  import { PUBLIC_APP_NAME, PUBLIC_SUPABASE_URI } from '$env/static/public'
   import CardContainer from '$components/Card/CardContainer.svelte'
   import Card from '$components/Card/Card.svelte'
   import Image from '$components/Image.svelte'
@@ -25,13 +25,13 @@
       </Card>
     {/each}
   {:then members}
-    {#each members as { stage_name, id, avatar_uri, description }}
+    {#each members as { stage_name, id, description }}
       <Card href="/members/{id}?name={encodeURIComponent(stage_name)}" {id}>
         <Image
           class="w-full rounded-md overflow-hidden"
           style="background-color: rgb({Math.random() * 200 + 55},{Math.random() * 200 +
             55},{Math.random() * 200 + 55});"
-          src="https://drive.google.com/uc?export=view&id={avatar_uri}"
+          src="{PUBLIC_SUPABASE_URI}/storage/v1/object/public/avatar/{id}.png"
           alt="avatar of {stage_name}"
         />
         <h2>{stage_name}</h2>

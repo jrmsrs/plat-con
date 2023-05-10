@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { PUBLIC_APP_NAME } from '$env/static/public'
+  import { PUBLIC_APP_NAME, PUBLIC_SUPABASE_URI } from '$env/static/public'
   import CardContainer from '$components/Card/CardContainer.svelte'
   import Card from '$components/Card/Card.svelte'
   import Image from '$components/Image.svelte'
@@ -44,12 +44,12 @@
       </Card>
     {/each}
   {:then channels}
-    {#each channels as { name, description, tags, id, members, logo_img_uri }}
+    {#each channels as { name, description, tags, id, members }}
       <Card href="/channels/{id}?name={encodeURIComponent(name)}" {id}>
         <div>
           <Image
             class="w-full rounded-md overflow-hidden"
-            src="https://drive.google.com/uc?export=view&id={logo_img_uri}"
+            src="{PUBLIC_SUPABASE_URI}/storage/v1/object/public/channel-logo/{id}.png"
             alt="logo of {name}"
           />
           <h2>{name}</h2>
