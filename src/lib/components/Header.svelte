@@ -40,7 +40,12 @@
     </ul>
     <!-- <HamburguerBtn on:click={() => (visible = !visible)} /> -->
 
-    <button type="button" class="fixed top-8 right-5 p-1 sm:hidden" on:click={toggleVisible}>
+    <button
+      type="button"
+      class="fixed top-8 right-5 p-1 sm:hidden"
+      on:click={toggleVisible}
+      aria-label="Menu"
+    >
       <svg
         viewBox="0 0 90 75"
         width="1.25rem"
@@ -99,6 +104,7 @@
         {#if !session}
           <span class="ml-3 text-zinc-300 font-thin"> sign in </span>
           <button
+            aria-label="Login"
             class="ml-0.5 p-0.5 border-[1px] border-green-300 hover:bg-green-300 hover:text-zinc-900 rounded-md text-sm"
             on:click={toggleAuthVisible}
             on:keyup={null}
@@ -110,6 +116,7 @@
             {session.user.user_metadata?.display_name || session.user.email}
           </span>
           <button
+            aria-label="Logout"
             class="ml-0.5 p-0.5 border-[1px] border-red-300 hover:bg-red-300 hover:text-zinc-900 rounded-md text-sm"
             on:click={toggleAuthVisible}
             on:keyup={null}
