@@ -38,6 +38,7 @@ export interface Database {
           id: string
           logo_img_uri: string | null
           name: string
+          symbols: string[] | null
           tags: string[] | null
         }
         Insert: {
@@ -48,6 +49,7 @@ export interface Database {
           id?: string
           logo_img_uri?: string | null
           name: string
+          symbols?: string[] | null
           tags?: string[] | null
         }
         Update: {
@@ -58,6 +60,7 @@ export interface Database {
           id?: string
           logo_img_uri?: string | null
           name?: string
+          symbols?: string[] | null
           tags?: string[] | null
         }
       }
@@ -160,6 +163,7 @@ export interface Database {
         Row: {
           avatar_uri: string | null
           created_at: string | null
+          description: string | null
           id: string
           stage_name: string
           user_id: string | null
@@ -167,6 +171,7 @@ export interface Database {
         Insert: {
           avatar_uri?: string | null
           created_at?: string | null
+          description?: string | null
           id?: string
           stage_name: string
           user_id?: string | null
@@ -174,6 +179,7 @@ export interface Database {
         Update: {
           avatar_uri?: string | null
           created_at?: string | null
+          description?: string | null
           id?: string
           stage_name?: string
           user_id?: string | null

@@ -60,7 +60,7 @@
           Math.random() * 20
         )}; transform: rotate({Math.random() * 60 + 325}deg);"
       >
-        {channel.symbols[Math.floor(Math.random() * channel.symbols.length)]}
+        {channel.symbols?.[Math.floor(Math.random() * channel.symbols.length)] || ''}
       </div>
     {/each}
   </div>

@@ -2,7 +2,7 @@
   "name": "plat-conteudos",
   "version": "0.0.1",
   "scripts": {
-    "update-types": "npx supabase gen types typescript --project-id \"vicygviwwshrkodxnycl\" --schema public > src/lib/SupabaseTypes.d.ts",
+    "update-types": "npx supabase gen types typescript --project-id \"vicygviwwshrkodxnycl\" --schema public > src/SupabaseTypes.d.ts",
     "start": "vite dev --host",
     "dev": "vite dev",
     "build": "vite build",
